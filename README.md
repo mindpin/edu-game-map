@@ -1,30 +1,26 @@
-# Edu::Game::Map
+# EduGameMap
 
-TODO: Write a gem description
+Progression map for online education services.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'edu-game-map'
+gem 'edu-game-map', github: 'mindpin/edu-game-map'
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install edu-game-map
-
 ## Usage
 
-TODO: Write usage instructions here
+See `example` directory.
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/edu-game-map/fork )
+1. Fork it ( https://github.com/mindpin/edu-game-map/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
