@@ -9,16 +9,16 @@ def mklesson(course, x)
 end
 
 puts "======== 开始生成数据"
-1.upto(4).each do |x|
+1.upto(8).each do |x|
   course = mkcourse(x)
 
-  count = rand 1..16
+  count = rand 6..23
 
-  (1..count).each do |y|
+  1.upto(6 + (7..count).size).each do |y|
     mklesson(course, y)
 
     nr = y == count ? "\n" : "\r"
-    print "-- 课程(#{x}/4) - 课节(#{y}/#{count})#{nr}"
+    print "-- 课程(#{x}/8) - 课节(#{y}/#{count})#{nr}"
   end
 end
 puts "======== 结束生成数据"
