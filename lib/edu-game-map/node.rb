@@ -7,7 +7,9 @@ module EduGameMap
       @name = hash["name"]
       @parents  = []
       @children = []
-      @minicourse = EduGameMap::Minicourse.where(:id => hash["minicourse"]).first
+      if !hash["minicourse"].blank?
+        @minicourse = EduGameMap::Minicourse.where(:id => hash["minicourse"]).first
+      end
     end
 
     def ancestors
@@ -44,7 +46,7 @@ module EduGameMap
     end
 
     private
-      def _get_children(self, descendants)
+      def _get_children(node, descendants)
         node.children.each do |child|
           descendants << child
           _get_children(child, descendants)
