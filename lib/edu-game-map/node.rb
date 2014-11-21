@@ -45,6 +45,16 @@ module EduGameMap
       end.count == 0
     end
 
+    def do_learn_by(user)
+      mlr = map.map_learned_records.where(:user_id => user.id).first
+      if mlr.blank?
+        mlr = map.map_learned_records.create(:user_id => user.id)
+      end
+      if !mlr.learned_node_ids.include?(self.id)
+        mlr.add_learned_node_id!(self.id)
+      end
+    end
+
     private
       def _get_children(node, descendants)
         node.children.each do |child|

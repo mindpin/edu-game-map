@@ -4,6 +4,7 @@ module EduGameMap
     include Mongoid::Timestamps
     include EduGameMap::Map::JsonMethods
     scope :with_publised, ->{where(is_publised: true)}
+    has_many :map_learned_records
 
     # json 内容
     field :json,        type: String

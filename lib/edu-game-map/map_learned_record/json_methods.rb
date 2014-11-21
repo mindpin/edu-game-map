@@ -22,6 +22,11 @@ module EduGameMap
         json_hash["learned_nodes"]
       end
 
+      def add_learned_node_id!(node_id)
+        learned_node_ids << node_id
+        self.json = json_hash.to_json
+        self.save
+      end
     end
   end
 end
