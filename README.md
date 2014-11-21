@@ -32,8 +32,10 @@ map.nodes #=> EduGameMap::Node数组
 map.begin_node #=> EduGameMap::Node数组
 
 
-
-node,map #=> node 所属的 map
+node.id
+node.name
+node.minicourse
+node.map #=> node 所属的 map
 node.jump_to_map #=> 此 node 可以跳转到的其他 map，不能是他所属的 map
 node.parents #=> node 的所有父节点
 node.children #=> node 的所有子节点
@@ -45,4 +47,8 @@ node.is_learned_by?(user) #=> 指定用户是否学完了该节点
 node.can_be_learn_by?(user) #=> 查询此节点是否可被指定用户学习
 # 如果该节点是 node.is_begin_node? == true 则随时可学
 # 如果该节点的 parents 均学完，则该节点可学
+
+
+minicourse = EduGameMap::Minicourse.create(hash)
+
 ```

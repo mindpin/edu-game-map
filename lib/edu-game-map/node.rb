@@ -1,12 +1,13 @@
 module EduGameMap
   class Node
-    attr_reader :id, :name, :children, :parents, :jump_to_map, :map
+    attr_reader :id, :name, :minicourse, :children, :parents, :jump_to_map, :map
     def initialize(map, hash)
       @map  = map
       @id   = hash["id"]
       @name = hash["name"]
       @parents  = []
       @children = []
+      @minicourse = EduGameMap::Minicourse.where(:id => hash["minicourse"]).first
     end
 
     def ancestors
