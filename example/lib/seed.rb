@@ -5,7 +5,8 @@ def mkcourse(x)
 end
 
 def mklesson(course, x)
-  Lesson.find_or_create_by(:name => "#{course.name} - 第#{x}节", :course_id => course.id)
+  lesson = Lesson.find_or_create_by(:name => "#{course.name} - 第#{x}节", :course_id => course.id)
+  EduGameMap::Minicourse.find_or_create_by(:lesson_id => lesson.id)
 end
 
 #

@@ -3,4 +3,6 @@ class Course
   include Mongoid::Timestamps
 
   field :name, :type => String
+
+  has_many :lessons
 end

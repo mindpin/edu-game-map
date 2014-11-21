@@ -2,6 +2,7 @@ PATH
   remote: ..
   specs:
     edu-game-map (0.0.1)
+      json
       mongoid (~> 4.0)
 
 GEM
