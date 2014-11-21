@@ -26,7 +26,12 @@ EduGameMap.init!
 ```
 
 ```ruby
-map = EduGameMap::Map.all.first
+json = "blablablabl"
+map = EduGameMap::Map.create
+map.json = json
+map.save
+
+map = EduGameMap::Map.with_publised.first
 map.json_hash #=> json 数据的 hash 对象
 map.nodes #=> EduGameMap::Node数组
 map.begin_node #=> EduGameMap::Node数组

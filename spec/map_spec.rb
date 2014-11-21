@@ -1,5 +1,6 @@
 RSpec.describe EduGameMap::Map do
   it "hello" do
-    expect(1).to eq(1)
+    map = EduGameMap::Map.create
+    expect(map.json).to eq(nil)
   end
 end

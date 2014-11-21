@@ -15,7 +15,7 @@ module EduGameMap
       end
 
       def json_hash
-        @json_hash ||= JSON.parse(self.json)
+        @json_hash ||= JSON.parse(self.json||"{}")
       end
 
       def learned_node_ids

@@ -3,7 +3,7 @@ module EduGameMap
     include Mongoid::Document
     include Mongoid::Timestamps
     include EduGameMap::Map::JsonMethods
-    scope :with_publised, where(is_publised: true)
+    scope :with_publised, ->{where(is_publised: true)}
 
     # json 内容
     field :json,        type: String
