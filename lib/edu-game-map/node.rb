@@ -9,20 +9,22 @@ module EduGameMap
       @children = []
     end
 
-    private
-    def _add_child(child)
-      return if @children.include?(child)
-      @children << child
+    def ancestors
+      @ancestors || begin
+        ancestors = []
+        _get_parents(self, ancestors)
+        ancestors
+      end
     end
 
-    def _add_parent(parent)
-      return if @parents.include?(parent)
-      @parents << parent
+    def descendants
+      @descendants || begin
+        descendants = []
+        _get_children(self, descendants)
+        descendants
+      end
     end
 
-    def _set_jump_to_map(map)
-      @jump_to_map = map
-    end
 
     def is_begin_node?
       @parents.count == 0
@@ -39,5 +41,35 @@ module EduGameMap
         !mlr.learned_node_ids.include?(parent.id)
       end.count == 0
     end
+
+    private
+      def _get_children(self, descendants)
+        node.children.each do |child|
+          descendants << child
+          _get_children(child, descendants)
+        end
+      end
+
+      def _get_parents(node, ancestors)
+        node.parents.each do |parent|
+          ancestors << parent
+          _get_parents(parent, ancestors)
+        end
+      end
+
+      def _add_child(child)
+        return if @children.include?(child)
+        @children << child
+      end
+
+      def _add_parent(parent)
+        return if @parents.include?(parent)
+        @parents << parent
+      end
+
+      def _set_jump_to_map(map)
+        @jump_to_map = map
+      end
+
   end
 end
