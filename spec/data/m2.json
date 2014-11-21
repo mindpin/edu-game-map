@@ -1,0 +1,46 @@
+{
+  "id"       : "m2",
+  "name"  : "m2name",
+  "nodes" : [
+    {
+      "id"   : "2-1",
+      "name" : "n2-1name",
+      "minicourse" : "x"
+    },
+    {
+      "id"   : "2-2",
+      "name" : "n2-2name",
+      "minicourse" : "x"
+    },
+    {
+      "id"   : "2-3",
+      "name" : "n2-3name",
+      "minicourse" : "x"
+    },
+    {
+      "id"   : "2-4",
+      "name" : "n2-4name",
+      "minicourse" : "x"
+    }
+  ],
+  "relations" : [
+    {
+      "parent" : "2-1",
+      "child"  : "2-2"
+    },
+    {
+      "parent" : "2-1",
+      "child"  : "2-3"
+    },
+    {
+      "parent" : "2-1",
+      "child"  : "2-4"
+    }
+  ],
+  "jump" : [
+    {
+      "node" : "2-1",
+      "map"  : "m1"
+    }
+  ]
+}

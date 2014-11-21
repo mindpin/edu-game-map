@@ -1,0 +1,6 @@
+test:
+  sessions:
+    default:
+      database: edu-game-map_test
+      hosts:
+        - localhost:27017

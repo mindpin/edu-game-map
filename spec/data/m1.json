@@ -1,0 +1,121 @@
+{
+  "id"    : "m1",
+  "name"  : "m1name",
+  "nodes" : [
+    {
+      "id"   : "1",
+      "name" : "n1name",
+      "minicourse" : "x"
+    },
+    {
+      "id"   : "2",
+      "name" : "n2name",
+      "minicourse" : "x"
+    },
+    {
+      "id"   : "3",
+      "name" : "n3name",
+      "minicourse" : "x"
+    },
+    {
+      "id"   : "4",
+      "name" : "n4name",
+      "minicourse" : "x"
+    },
+    {
+      "id"   : "5",
+      "name" : "n5name",
+      "minicourse" : "x"
+    },
+    {
+      "id"   : "6",
+      "name" : "n6name",
+      "minicourse" : "x"
+    },
+    {
+      "id"   : "7",
+      "name" : "n7name",
+      "minicourse" : "x"
+    },
+    {
+      "id"   : "8",
+      "name" : "n8name",
+      "minicourse" : "x"
+    },
+    {
+      "id"   : "9",
+      "name" : "n9name",
+      "minicourse" : "x"
+    },
+    {
+      "id"   : "10",
+      "name" : "n10name",
+      "minicourse" : "x"
+    },
+    {
+      "id"   : "11",
+      "name" : "n11name",
+      "minicourse" : "x"
+    }
+  ],
+  "relations" : [
+    {
+      "parent" : "1",
+      "child"  : "2"
+    },
+    {
+      "parent" : "1",
+      "child"  : "3"
+    },
+    {
+      "parent" : "1",
+      "child"  : "5"
+    },
+    {
+      "parent" : "2",
+      "child"  : "4"
+    },
+    {
+      "parent" : "2",
+      "child"  : "5"
+    },
+    {
+      "parent" : "3",
+      "child"  : "6"
+    },
+    {
+      "parent" : "3",
+      "child"  : "7"
+    },
+    {
+      "parent" : "4",
+      "child"  : "8"
+    },
+    {
+      "parent" : "5",
+      "child"  : "8"
+    },
+    {
+      "parent" : "6",
+      "child"  : "9"
+    },
+    {
+      "parent" : "7",
+      "child"  : "9"
+    },
+    {
+      "parent" : "9",
+      "child"  : "10"
+    },
+    {
+      "parent" : "9",
+      "child"  : "11"
+    }
+  ],
+  "jump" : [
+    {
+      "node" : "10",
+      "map"  : "m2"
+    }
+  ]
+}
