@@ -17,7 +17,7 @@ module EduGameMap
         ancestors = []
         _get_parents(self, ancestors)
         ancestors
-      end
+      end.uniq
     end
 
     def descendants
@@ -25,7 +25,7 @@ module EduGameMap
         descendants = []
         _get_children(self, descendants)
         descendants
-      end
+      end.uniq
     end
 
 
