@@ -10,8 +10,15 @@ module EduGameMap
       def _set_map_id
         json_map_id  = json_hash["map"]
         json_user_id = json_hash["user"]
-        self.map_id  = json_map_id  if json_map_id  != self.map_id
-        self.user_id = json_user_id if json_user_id != self.user_id
+
+        if json_map_id  != self.map_id
+          json_hash["map"] = self.map_id.to_s
+        end
+        if json_user_id != self.user_id
+          json_hash["user"] = self.user_id.to_s
+        end
+
+        self.json = json_hash.to_json
       end
 
       def json_hash
@@ -19,7 +26,7 @@ module EduGameMap
       end
 
       def learned_node_ids
-        json_hash["learned_nodes"]
+        json_hash["learned_nodes"] ||= []
       end
 
       def add_learned_node_id!(node_id)
