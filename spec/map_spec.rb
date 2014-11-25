@@ -11,6 +11,14 @@ RSpec.describe EduGameMap::Map do
     @map2 = EduGameMap::Map.create!(:json => m2_json)
   }
 
+  it "with_published" do
+    expect(EduGameMap::Map.with_published.count).to eq(0)
+    expect(@map.is_published).to eq(false)
+    @map.published!
+    expect(EduGameMap::Map.with_published.count).to eq(1)
+    expect(@map.is_published).to eq(true)
+  end
+
 
   it "parse map" do
     expect(@map.nodes.count).to eq(11)
