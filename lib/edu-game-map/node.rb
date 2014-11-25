@@ -63,6 +63,16 @@ module EduGameMap
       end
     end
 
+    def set_minicourse!(minicourse)
+      nodes_hash = @map.json_hash["nodes"]
+      node_ids = nodes_hash.map{|node_hash|node_hash["id"]}
+      index = node_ids.index(self.id)
+      nodes_hash[index]["minicourse"] = minicourse.id.to_s
+      @map.json = @map.json_hash.to_json
+      @map.save!
+      @minicourse = minicourse
+    end
+
     private
       def _get_children(node, descendants)
         node.children.each do |child|

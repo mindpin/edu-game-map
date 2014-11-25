@@ -55,6 +55,8 @@ node.can_be_learn_by?(user) #=> 查询此节点是否可被指定用户学习
 
 node.do_learn_by(user) #=> 设置该节点为已学习
 
+node.set_minicourse!(minicourse) #=> 设置该节点关联的 minicourse
+
 minicourse = EduGameMap::Minicourse.create(hash)
 minicourse.is_learned_by?(user) #=> 指定用户是否学完了该 minicourse
 ```

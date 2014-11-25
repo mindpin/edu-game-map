@@ -65,4 +65,16 @@ RSpec.describe EduGameMap::Map do
     node2.do_learn_by(user)
     expect(node2.is_learned_by?(user)).to eq(true)
   end
+
+  it "set minicourse" do
+    expect(EduGameMap::Minicourse.count).to eq(0)
+    minicourse = EduGameMap::Minicourse.create
+    expect(EduGameMap::Minicourse.count).to eq(1)
+    node = @map.begin_nodes.first
+    expect(node.minicourse).to eq(nil)
+    node.set_minicourse!(minicourse)
+    expect(node.minicourse).to eq(minicourse)
+    map = EduGameMap::Map.find(@map.id)
+    expect(map.begin_nodes.first.minicourse).to eq(minicourse)
+  end
 end
