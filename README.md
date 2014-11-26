@@ -26,7 +26,12 @@ EduGameMap.init!
 ```
 
 ```ruby
-map = EduGameMap::Map.all.first
+json = "blablablabl"
+map = EduGameMap::Map.create
+map.json = json
+map.save
+
+map = EduGameMap::Map.with_published.first
 map.json_hash #=> json 数据的 hash 对象
 map.nodes #=> EduGameMap::Node数组
 map.begin_node #=> EduGameMap::Node数组
@@ -48,7 +53,10 @@ node.can_be_learn_by?(user) #=> 查询此节点是否可被指定用户学习
 # 如果该节点是 node.is_begin_node? == true 则随时可学
 # 如果该节点的 parents 均学完，则该节点可学
 
+node.do_learn_by(user) #=> 设置该节点为已学习
+
+node.set_minicourse!(minicourse) #=> 设置该节点关联的 minicourse
 
 minicourse = EduGameMap::Minicourse.create(hash)
-
+minicourse.is_learned_by?(user) #=> 指定用户是否学完了该 minicourse
 ```

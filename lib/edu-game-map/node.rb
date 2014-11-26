@@ -17,7 +17,7 @@ module EduGameMap
         ancestors = []
         _get_parents(self, ancestors)
         ancestors
-      end
+      end.uniq
     end
 
     def descendants
@@ -25,7 +25,7 @@ module EduGameMap
         descendants = []
         _get_children(self, descendants)
         descendants
-      end
+      end.uniq
     end
 
 
@@ -34,15 +34,43 @@ module EduGameMap
     end
 
     def is_learned_by?(user)
-      mlr = EduGameMap::MapLearnedRecord.where(:map_id => self.map.map_id, :user_id => user.id).first
+      mlr = EduGameMap::MapLearnedRecord.where(:map_id => self.map.id.to_s, :user_id => user.id.to_s).first
+      return false if mlr.blank?
       mlr.learned_node_ids.include?(self.id)
     end
 
     def can_be_learn_by?(user)
-      mlr = EduGameMap::MapLearnedRecord.where(:map_id => self.map.map_id, :user_id => user.id).first
+      mlr = EduGameMap::MapLearnedRecord.where(:map_id => self.map.id.to_s, :user_id => user.id.to_s).first
+      return false if mlr.blank? && self.parents.count != 0
+
       self.parents.select do |parent|
         !mlr.learned_node_ids.include?(parent.id)
       end.count == 0
+    end
+
+    def do_learn_by(user)
+      return if !can_be_learn_by?(user)
+      mlr = map.map_learned_records.where(:user_id => user.id.to_s).first
+      if mlr.blank?
+        mlr = map.map_learned_records.create(:user => user)
+      end
+      if !mlr.learned_node_ids.include?(self.id)
+        mlr.add_learned_node_id!(self.id)
+      end
+
+      if !self.minicourse.blank?
+        node.minicourse.do_learn_by(user)
+      end
+    end
+
+    def set_minicourse!(minicourse)
+      nodes_hash = @map.json_hash["nodes"]
+      node_ids = nodes_hash.map{|node_hash|node_hash["id"]}
+      index = node_ids.index(self.id)
+      nodes_hash[index]["minicourse"] = minicourse.id.to_s
+      @map.json = @map.json_hash.to_json
+      @map.save!
+      @minicourse = minicourse
     end
 
     private

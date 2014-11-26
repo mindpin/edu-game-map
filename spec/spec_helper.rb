@@ -20,6 +20,7 @@ require 'mongoid'
 ENV['RACK_ENV'] = 'test'
 Mongoid.load!(File.expand_path("../mongoid.yml",__FILE__))
 require "./lib/edu-game-map"
+require "./spec/mock"
 Bundler.require(:test)
 RSpec.configure do |config|
   config.before :each do
