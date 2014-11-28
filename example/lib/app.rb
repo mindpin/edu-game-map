@@ -19,6 +19,16 @@ get "/minicourses" do
   Course.find_by(:name => "Android开发").lessons.map(&:minicourse).to_json
 end
 
+post "/maps" do
+  content_type :json
+
+  map = EduGameMap::Map.create
+  map.json = params[:json]
+  map.save
+
+  map.json_hash.to_json
+end
+
 get "/maps/:id" do
   content_type :json
 
