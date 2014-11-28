@@ -27,6 +27,14 @@ module EduGameMap
   end
 end
 
+class User
+  include Mongoid::Document
+
+  has_many :map_records, :class_name => "EduGameMap::MapLearnedRecord"
+
+  field :name, :type => String
+end
+
 EduGameMap.init!
 
 Mongoid.load!("./mongoid.yml")
