@@ -1,33 +1,32 @@
 require "./lib/app"
 
-def mkcourse(x)
-  Course.find_or_create_by(:name => "课程#{x}")
+def mkcourse(name)
+  Course.find_or_create_by(:name => name)
 end
 
-def mklesson(course, x)
-  lesson = Lesson.find_or_create_by(:name => "#{course.name} - 第#{x}节", :course_id => course.id)
+def mklesson(course, name)
+  lesson = Lesson.find_or_create_by(:name => name, :course_id => course.id)
   EduGameMap::Minicourse.find_or_create_by(:lesson_id => lesson.id)
 end
 
-#
-# course1和course2 分别对应
-# https://github.com/mindpin/edu-game-map/issues/2#issuecomment-63586844
-# 中两张图里的 m1, m2
-#
-puts "======== 开始生成数据"
-1.upto(2).each do |x|
-  course = mkcourse(x)
+course = mkcourse("Android开发")
 
-  count = case x
-          when 1 then 11
-          when 2 then 4
-          end
+sdklessons = [ 
+  "准备Android SDK",
+  "准备Java集成开发环境",
+  "学习Java语言",
+  "学习Android SDK基础 API"
+]
 
-  1.upto(count).each do |y|
-    mklesson(course, y)
+ndklessons = [
+  "准备Android NDK",
+  "准备C/C++集成开发环境",
+  "学习C/C++语言",
+  "Android NDK 基础 API"
+]
 
-    nr = y == count ? "\n" : "\r"
-    print "-- 课程(#{x}/2) - 课节(#{y}/#{count})#{nr}"
-  end
+(%w{绪论} + sdklessons + ndklessons).each do |name|
+  mklesson(course, name)
 end
-puts "======== 结束生成数据"
+
+puts "课程导入完成"
