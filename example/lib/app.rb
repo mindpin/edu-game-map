@@ -15,7 +15,7 @@ require "./lib/lesson"
 get "/minicourses" do
   content_type :json
 
-  EduGameMap::Minicourse.all.to_json
+  Course.find_by(:name => "Android开发").lessons.map(&:minicourse).to_json
 end
 
 post "/maps" do

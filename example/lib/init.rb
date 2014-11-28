@@ -14,7 +14,15 @@ module EduGameMap
     belongs_to :lesson
 
     def as_json(options={})
-      super(options.merge(:except => [:_id, :course_id])).merge("id" => id.to_s)
+      conf = {
+        :except => [
+          :_id, :lesson_id, :course_id
+        ],
+
+        :include => :lesson
+      }
+
+      super(options.merge(conf)).merge("id" => id.to_s)
     end
   end
 end
