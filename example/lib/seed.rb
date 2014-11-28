@@ -29,4 +29,19 @@ ndklessons = [
   mklesson(course, name)
 end
 
+m1_json = File.read("./miscs/m1.json")
+m1 = EduGameMap::Map.find_or_create_by(:map_name => "m1")
+m1.json = m1_json
+m1.save
+
+m2_json = File.read("./miscs/m2.json")
+m2 = EduGameMap::Map.find_or_create_by(:map_name => "m2")
+m2.json = m2_json
+m2.save
+
+mzghhr_json = File.read("./miscs/mzghhr.json")
+mzghhr = EduGameMap::Map.find_or_create_by(:map_name => "mzghhr")
+mzghhr.json = mzghhr_json
+mzghhr.save
+
 puts "课程导入完成"
