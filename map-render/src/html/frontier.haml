@@ -1,0 +1,46 @@
+!!!
+%html
+  %head
+    %title 示例：frontier
+    %meta{:charset => 'utf-8'}
+    
+    %link{:rel => 'stylesheet', :href => 'dist/css/ui.css'}
+
+  %body.frontier
+    .frontier-map
+      .line.hide{:data => {:id => 0,   :from => 1,  :to => 2}}
+      .line.hide{:data => {:id => 1,   :from => 2,  :to => 3}}
+      .line.hide{:data => {:id => 2,   :from => 3,  :to => 4}}
+      .line.hide{:data => {:id => 3,   :from => 4,  :to => 5}}
+      .line.hide{:data => {:id => 4,   :from => 5,  :to => 6}}
+      .line.hide{:data => {:id => 5,   :from => 6,  :to => 7}}
+      .line.hide{:data => {:id => 6,   :from => 7,  :to => 8}}
+      .line.hide{:data => {:id => 7,   :from => 8,  :to => 9}}
+      .line.hide{:data => {:id => 8,   :from => 9,  :to => 10}}
+      .line.hide{:data => {:id => 9,   :from => 10, :to => 11}}
+      .line.hide{:data => {:id => 10,  :from => 11, :to => 12}}
+      .line.hide{:data => {:id => 11,  :from => 12, :to => 13}}
+      .line.hide{:data => {:id => 12,  :from => 13, :to => 14}}
+      .line.hide{:data => {:id => 13,  :from => 14, :to => 15}}
+
+      .flag.hide{:data => {:id => 0,   :node => 1}}
+      .flag.hide{:data => {:id => 1,   :node => 2}}
+      .flag.hide{:data => {:id => 2,   :node => 3}}
+      .flag.hide{:data => {:id => 3,   :node => 4}}
+      .flag.hide{:data => {:id => 4,   :node => 5}}
+      .flag.hide{:data => {:id => 5,   :node => 6}}
+      .flag.hide{:data => {:id => 6,   :node => 7}}
+      .flag.hide{:data => {:id => 7,   :node => 8}}
+      .flag.hide{:data => {:id => 8,   :node => 9}}
+      .flag.hide{:data => {:id => 9,   :node => 10}}
+      .flag.hide{:data => {:id => 10,  :node => 11}}
+      .flag.hide{:data => {:id => 11,  :node => 12}}
+      .flag.hide{:data => {:id => 12,  :node => 13}}
+      .flag.hide{:data => {:id => 13,  :node => 14}}
+      .flag.hide{:data => {:id => 14,  :node => 15}}
+
+
+    %script{:type => 'text/javascript', :src => 'lib/jquery-2.1.1.min.js'}
+
+    %script{:type => 'text/javascript', :src => 'dist/js/map.js'}
+    %script{:type => 'text/javascript', :src => 'dist/js/frontier.js'}

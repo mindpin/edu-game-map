@@ -1,0 +1,52 @@
+{
+  "id": "map-1",
+  "name": "a sample map",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "task 1"
+    },
+    {
+      "id": "2",
+      "name": "task 2"
+    },
+    {
+      "id": "3",
+      "name": "task 3"
+    },
+    {
+      "id": "4",
+      "name": "task 4"
+    },
+    {
+      "id": "5",
+      "name": "task 5"
+    },
+    {
+      "id": "6",
+      "name": "task 6"
+    }
+  ],
+  "relations": [
+    {
+      "parent": "1",
+      "child": "2"
+    },
+    {
+      "parent": "2",
+      "child": "3"
+    },
+    {
+      "parent": "2",
+      "child": "4"
+    },
+    {
+      "parent": "4",
+      "child": "5"
+    },
+    {
+      "parent": "2",
+      "child": "6"
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+body {
+  font-family: "Helvetica Neue","Helvetica","Arial","sans-serif","微软雅黑";
+  font-size:14px;
+  margin:0;
+  padding:0;
+
+  background-color: #f1f1f1;
+}
+
+.paper {
+  position: fixed;
+  top:10px;left:10px;right:10px;bottom:10px;
+  box-shadow:1px 1px 4px rgba(black, 0.4);
+  background-color: #fff;
+  border-radius:4px;
+
+  .node {
+    $w:30px;
+    width:$w;
+    height:$w;line-height:$w;
+    background-color: #333;
+    color:white;
+    position:absolute;
+    text-align: center;
+    border-radius:100px;
+    z-index:1;
+  }
+
+  canvas {
+    position: absolute;
+  }
+}
+
+@mixin pos($width, $height, $left, $top) {
+  width: $width + 0px; height: $height + 0px;
+  left: $left + 0px; top: $top + 0px;
+}
+
+body.frontier {
+  background:#222;
+
+  .frontier-map {
+    // background:url(../../sample-frontiers/bg1.png) 0 0 no-repeat;
+    background:url(../../sample-frontiers/bg.jpg) 0 0 no-repeat;
+    width:1024px;height:768px;
+    margin:30px auto;
+    position: relative;
+
+    .line {
+      position:absolute;
+      // opacity:0.5;
+      &[data-id="0"] {
+        background:url(../../sample-frontiers/line-0-1.png) 0 0 no-repeat;
+        @include pos(53, 21, 338, 222);
+      }
+      &[data-id="1"] {
+        background:url(../../sample-frontiers/line-1-2.png) 0 0 no-repeat;
+        @include pos(36, 77, 421, 252);
+      }
+      &[data-id="2"] {
+        background:url(../../sample-frontiers/line-2-3.png) 0 0 no-repeat;
+        @include pos(77, 28, 334, 339);
+      }
+      &[data-id="3"] {
+        background:url(../../sample-frontiers/line-3-4.png) 0 0 no-repeat;
+        @include pos(101, 54, 198, 356);
+      }
+      &[data-id="4"] {
+        background:url(../../sample-frontiers/line-4-5.png) 0 0 no-repeat;
+        @include pos(220, 159, 147, 431);
+      }
+      &[data-id="5"] {
+        background:url(../../sample-frontiers/line-5-6.png) 0 0 no-repeat;
+        @include pos(141, 98, 392, 473);
+      }
+      &[data-id="6"] {
+        background:url(../../sample-frontiers/line-6-7.png) 0 0 no-repeat;
+        @include pos(92, 121, 566, 475);
+      }
+      &[data-id="7"] {
+        background:url(../../sample-frontiers/line-7-8.png) 0 0 no-repeat;
+        @include pos(124, 64, 676, 552);
+      }
+      &[data-id="8"] {
+        background:url(../../sample-frontiers/line-8-9.png) 0 0 no-repeat;
+        @include pos(62, 69, 731, 426);
+      }
+      &[data-id="9"] {
+        background:url(../../sample-frontiers/line-9-10.png) 0 0 no-repeat;
+        @include pos(62, 46, 652, 373);
+      }
+      &[data-id="10"] {
+        background:url(../../sample-frontiers/line-10-11.png) 0 0 no-repeat;
+        @include pos(32, 87, 607, 275);
+      }
+      &[data-id="11"] {
+        background:url(../../sample-frontiers/line-11-12.png) 0 0 no-repeat;
+        @include pos(64, 42, 631, 219);
+      }
+      &[data-id="12"] {
+        background:url(../../sample-frontiers/line-12-13.png) 0 0 no-repeat;
+        @include pos(54, 13, 723, 215);
+      }
+      &[data-id="13"] {
+        background:url(../../sample-frontiers/line-13-14.png) 0 0 no-repeat;
+        @include pos(67, 33, 808, 224);
+      }
+
+      transition: all .5s ease-out;
+
+      &.hide {
+        pointer-events:none;
+        opacity: 0;
+      }
+      &.show {
+        opacity: 1;
+      }
+    }
+
+
+    .flag {
+      width:70px;height:70px;position:absolute;
+      background:url(../../sample-frontiers/flag.png) 0 0 no-repeat;
+      &[data-id="0"] {left:285px;top:167px;}
+      &[data-id="1"] {left:373px;top:190px;}
+      &[data-id="2"] {left:388px;top:278px;}
+      &[data-id="3"] {left:282px;top:304px;}
+      &[data-id="4"] {left:160px;top:363px;}
+      &[data-id="5"] {left:346px;top:514px;}
+      &[data-id="6"] {left:514px;top:420px;}
+      &[data-id="7"] {left:630px;top:544px;}
+      &[data-id="8"] {left:761px;top:487px;}
+      &[data-id="9"] {left:686px;top:365px;}
+      &[data-id="10"] {left:609px;top:310px;}
+      &[data-id="11"] {left:593px;top:210px;}
+      &[data-id="12"] {left:673px;top:167px;}
+      &[data-id="13"] {left:758px;top:170px;}
+      &[data-id="14"] {left:849px;top:202px;}
+
+      cursor:pointer;
+
+      transition: all .5s ease-out;
+
+      // 三种状态
+      // hide  不可玩
+      // ready 可玩
+      // done  过关
+
+      &.hide {
+        pointer-events:none;
+        opacity: 0;
+      }
+
+      &.ready {
+        opacity: 1;
+        background:url(../../sample-frontiers/flag.png) 0 0 no-repeat;
+      }
+
+      &.done {
+        background:url(../../sample-frontiers/flag-done.png) 0 0 no-repeat;
+      }
+    }
+  }
+}

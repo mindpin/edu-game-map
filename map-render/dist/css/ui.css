@@ -1,0 +1,190 @@
+@charset "UTF-8";
+body {
+  font-family: "Helvetica Neue","Helvetica","Arial","sans-serif","微软雅黑";
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  background-color: #f1f1f1; }
+
+.paper {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  background-color: #fff;
+  border-radius: 4px; }
+  .paper .node {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #333;
+    color: white;
+    position: absolute;
+    text-align: center;
+    border-radius: 100px;
+    z-index: 1; }
+  .paper canvas {
+    position: absolute; }
+
+body.frontier {
+  background: #222; }
+  body.frontier .frontier-map {
+    background: url(../../sample-frontiers/bg.jpg) 0 0 no-repeat;
+    width: 1024px;
+    height: 768px;
+    margin: 30px auto;
+    position: relative; }
+    body.frontier .frontier-map .line {
+      position: absolute;
+      transition: all .5s ease-out; }
+      body.frontier .frontier-map .line[data-id="0"] {
+        background: url(../../sample-frontiers/line-0-1.png) 0 0 no-repeat;
+        width: 53px;
+        height: 21px;
+        left: 338px;
+        top: 222px; }
+      body.frontier .frontier-map .line[data-id="1"] {
+        background: url(../../sample-frontiers/line-1-2.png) 0 0 no-repeat;
+        width: 36px;
+        height: 77px;
+        left: 421px;
+        top: 252px; }
+      body.frontier .frontier-map .line[data-id="2"] {
+        background: url(../../sample-frontiers/line-2-3.png) 0 0 no-repeat;
+        width: 77px;
+        height: 28px;
+        left: 334px;
+        top: 339px; }
+      body.frontier .frontier-map .line[data-id="3"] {
+        background: url(../../sample-frontiers/line-3-4.png) 0 0 no-repeat;
+        width: 101px;
+        height: 54px;
+        left: 198px;
+        top: 356px; }
+      body.frontier .frontier-map .line[data-id="4"] {
+        background: url(../../sample-frontiers/line-4-5.png) 0 0 no-repeat;
+        width: 220px;
+        height: 159px;
+        left: 147px;
+        top: 431px; }
+      body.frontier .frontier-map .line[data-id="5"] {
+        background: url(../../sample-frontiers/line-5-6.png) 0 0 no-repeat;
+        width: 141px;
+        height: 98px;
+        left: 392px;
+        top: 473px; }
+      body.frontier .frontier-map .line[data-id="6"] {
+        background: url(../../sample-frontiers/line-6-7.png) 0 0 no-repeat;
+        width: 92px;
+        height: 121px;
+        left: 566px;
+        top: 475px; }
+      body.frontier .frontier-map .line[data-id="7"] {
+        background: url(../../sample-frontiers/line-7-8.png) 0 0 no-repeat;
+        width: 124px;
+        height: 64px;
+        left: 676px;
+        top: 552px; }
+      body.frontier .frontier-map .line[data-id="8"] {
+        background: url(../../sample-frontiers/line-8-9.png) 0 0 no-repeat;
+        width: 62px;
+        height: 69px;
+        left: 731px;
+        top: 426px; }
+      body.frontier .frontier-map .line[data-id="9"] {
+        background: url(../../sample-frontiers/line-9-10.png) 0 0 no-repeat;
+        width: 62px;
+        height: 46px;
+        left: 652px;
+        top: 373px; }
+      body.frontier .frontier-map .line[data-id="10"] {
+        background: url(../../sample-frontiers/line-10-11.png) 0 0 no-repeat;
+        width: 32px;
+        height: 87px;
+        left: 607px;
+        top: 275px; }
+      body.frontier .frontier-map .line[data-id="11"] {
+        background: url(../../sample-frontiers/line-11-12.png) 0 0 no-repeat;
+        width: 64px;
+        height: 42px;
+        left: 631px;
+        top: 219px; }
+      body.frontier .frontier-map .line[data-id="12"] {
+        background: url(../../sample-frontiers/line-12-13.png) 0 0 no-repeat;
+        width: 54px;
+        height: 13px;
+        left: 723px;
+        top: 215px; }
+      body.frontier .frontier-map .line[data-id="13"] {
+        background: url(../../sample-frontiers/line-13-14.png) 0 0 no-repeat;
+        width: 67px;
+        height: 33px;
+        left: 808px;
+        top: 224px; }
+      body.frontier .frontier-map .line.hide {
+        pointer-events: none;
+        opacity: 0; }
+      body.frontier .frontier-map .line.show {
+        opacity: 1; }
+    body.frontier .frontier-map .flag {
+      width: 70px;
+      height: 70px;
+      position: absolute;
+      background: url(../../sample-frontiers/flag.png) 0 0 no-repeat;
+      cursor: pointer;
+      transition: all .5s ease-out; }
+      body.frontier .frontier-map .flag[data-id="0"] {
+        left: 285px;
+        top: 167px; }
+      body.frontier .frontier-map .flag[data-id="1"] {
+        left: 373px;
+        top: 190px; }
+      body.frontier .frontier-map .flag[data-id="2"] {
+        left: 388px;
+        top: 278px; }
+      body.frontier .frontier-map .flag[data-id="3"] {
+        left: 282px;
+        top: 304px; }
+      body.frontier .frontier-map .flag[data-id="4"] {
+        left: 160px;
+        top: 363px; }
+      body.frontier .frontier-map .flag[data-id="5"] {
+        left: 346px;
+        top: 514px; }
+      body.frontier .frontier-map .flag[data-id="6"] {
+        left: 514px;
+        top: 420px; }
+      body.frontier .frontier-map .flag[data-id="7"] {
+        left: 630px;
+        top: 544px; }
+      body.frontier .frontier-map .flag[data-id="8"] {
+        left: 761px;
+        top: 487px; }
+      body.frontier .frontier-map .flag[data-id="9"] {
+        left: 686px;
+        top: 365px; }
+      body.frontier .frontier-map .flag[data-id="10"] {
+        left: 609px;
+        top: 310px; }
+      body.frontier .frontier-map .flag[data-id="11"] {
+        left: 593px;
+        top: 210px; }
+      body.frontier .frontier-map .flag[data-id="12"] {
+        left: 673px;
+        top: 167px; }
+      body.frontier .frontier-map .flag[data-id="13"] {
+        left: 758px;
+        top: 170px; }
+      body.frontier .frontier-map .flag[data-id="14"] {
+        left: 849px;
+        top: 202px; }
+      body.frontier .frontier-map .flag.hide {
+        pointer-events: none;
+        opacity: 0; }
+      body.frontier .frontier-map .flag.ready {
+        opacity: 1;
+        background: url(../../sample-frontiers/flag.png) 0 0 no-repeat; }
+      body.frontier .frontier-map .flag.done {
+        background: url(../../sample-frontiers/flag-done.png) 0 0 no-repeat; }
